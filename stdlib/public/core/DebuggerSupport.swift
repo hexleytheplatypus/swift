@@ -34,13 +34,11 @@ import SwiftShims
 ///            "\(name) [\(wins)-\(losses)]"
 ///        }
 ///     }
-@available(SwiftStdlib 5.11, *)
 @attached(memberAttribute)
 public macro _DebugDescription() =
   #externalMacro(module: "SwiftMacros", type: "DebugDescriptionMacro")
 
 /// Internal-only macro. See `@_DebugDescription`.
-@available(SwiftStdlib 5.11, *)
 @attached(peer, names: named(_lldb_summary))
 public macro _DebugDescriptionProperty(_ debugIdentifier: String, _ computedProperties: [String]) =
   #externalMacro(module: "SwiftMacros", type: "_DebugDescriptionPropertyMacro")
